@@ -1,0 +1,254 @@
+{
+	"info": {
+		"_postman_id": "117931f5-5d27-49c6-809b-da120611fb35",
+		"name": "Node js Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42807212"
+	},
+	"item": [
+		{
+			"name": "Creating products",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Mobile",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "sfwefew",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "120",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "electronics",
+							"type": "text"
+						},
+						{
+							"key": "images",
+							"type": "file",
+							"src": [
+								"/home/growlt311/Documents/Node.js Test/public/image/users/user-1.jpg",
+								"/home/growlt311/Downloads/Express/complete-node-bootcamp-master/4-natours/starter/public/img/logo-white.png"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating products",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "vivo y19l",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "450000",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "mobile",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "knsfkls",
+							"type": "text"
+						},
+						{
+							"key": "images",
+							"type": "file",
+							"src": "/home/growlt311/Documents/Node.js Test/public/image/users/user-1.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/products/67d0098c618db4748d44da44",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products",
+						"67d0098c618db4748d44da44"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filteing , Paging ,limiting , sorting",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/products?category=electronics&page=2&limit=10&sort=price&order=asc\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "electronics"
+						},
+						{
+							"key": "page",
+							"value": "2"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "sort",
+							"value": "price"
+						},
+						{
+							"key": "order",
+							"value": "asc\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create orders",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n    {\n  \"customerName\": \"John Doe\",\n  \"customerEmail\": \"john@example.com\",\n  \"products\": [\n    {\n      \"productId\": \"67d02745cb1e471f4038c403\",\n      \"quantity\": 2\n    }\n  ]\n    }\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/orders/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update status of the order",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"status\": \"Shipped\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/orders/67d02f7169c192f0e973626c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders",
+						"67d02f7169c192f0e973626c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Paging and filters of orders",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
